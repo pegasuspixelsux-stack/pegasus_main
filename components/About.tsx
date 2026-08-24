@@ -69,17 +69,23 @@ export function About() {
               projects where our engineering can genuinely move the outcome,
               and we stay close to the metrics that prove it did.
             </p>
-            <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-white/[0.06] pt-6">
+            <dl className="mt-8 grid grid-cols-3 gap-6 border-t border-white/[0.06] pt-6">
               <div>
-                <dt className="text-sm text-muted">Founded</dt>
+                <dt className="text-sm text-muted">Projects</dt>
                 <dd className="mt-1 text-xl font-semibold text-foreground">
-                  2021
+                  100+
                 </dd>
               </div>
               <div>
-                <dt className="text-sm text-muted">Engineers</dt>
+                <dt className="text-sm text-muted">Experience</dt>
                 <dd className="mt-1 text-xl font-semibold text-foreground">
-                  12
+                  25 years
+                </dd>
+              </div>
+              <div>
+                <dt className="text-sm text-muted">Lines of code</dt>
+                <dd className="mt-1 text-xl font-semibold text-foreground">
+                  10,000+
                 </dd>
               </div>
             </dl>
