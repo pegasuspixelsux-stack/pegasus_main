@@ -1,6 +1,7 @@
 import { AmbientBackground } from "@/components/AmbientBackground";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { Statement } from "@/components/Statement";
 import { About } from "@/components/About";
 import { Work } from "@/components/Work";
 import { Footer } from "@/components/Footer";
@@ -11,6 +12,7 @@ export default function Home() {
       <AmbientBackground />
       <Nav />
       <Hero />
+      <Statement />
       <About />
       <Work />
       <Footer />
