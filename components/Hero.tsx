@@ -32,7 +32,7 @@ export function Hero() {
       >
         <motion.h1
           variants={item}
-          className="bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-5xl font-normal leading-[1.08] tracking-tighter text-transparent sm:text-6xl md:text-7xl"
+          className="bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-[4.5rem] font-normal leading-[1.08] tracking-tighter text-transparent sm:text-[5.625rem] md:text-[6.75rem]"
         >
           Infrastructure for{" "}
           <span className="inline-block pb-1 font-normal italic leading-[1.15] text-accent">
