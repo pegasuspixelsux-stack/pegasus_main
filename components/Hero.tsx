@@ -34,10 +34,11 @@ export function Hero() {
           variants={item}
           className="bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-5xl font-normal leading-[1.08] tracking-tighter text-transparent sm:text-6xl md:text-7xl"
         >
-          <span className="inline-block pb-1 font-extralight italic leading-[1.15] text-accent">
-            Infrastructure
-          </span>{" "}
-          for modern businesses.
+          Infrastructure for{" "}
+          <span className="inline-block pb-1 font-normal italic leading-[1.15] text-accent">
+            modern businesses
+          </span>
+          .
         </motion.h1>
 
         <motion.p
