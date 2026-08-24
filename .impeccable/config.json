@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "components/Hero.tsx"
+        ],
+        "createdAt": "2026-08-24T17:01:00.253Z",
+        "reason": "User confirmed vertical gradient headline is an explicit brief requirement"
+      }
+    ]
+  }
+}
