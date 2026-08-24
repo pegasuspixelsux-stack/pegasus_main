@@ -13,22 +13,27 @@ const fadeUp = {
   },
 };
 
+const METRICS = [
+  { value: "100+", label: "Projects" },
+  { value: "25+", label: "Years of experience" },
+  { value: "10,000+", label: "Lines of code" },
+];
+
 export function About() {
   return (
-    <section id="about" className="relative z-10 py-28 md:py-36">
-      <div className="mx-auto max-w-[1440px] px-6">
-        {/* Part 1 — mission statement */}
+    <section id="about" className="relative z-10 border-y border-white/[0.06] py-20 lg:py-28">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 px-6 lg:grid-cols-12 lg:gap-16">
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
-          className="mx-auto max-w-2xl text-center"
+          className="lg:col-span-7"
         >
-          <h2 className="text-3xl font-normal tracking-tighter text-foreground sm:text-4xl">
+          <h2 className="text-3xl font-normal tracking-tighter text-white sm:text-4xl">
             Architecture, Not Just Design
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted">
+          <p className="mt-6 leading-relaxed text-[#8A8F98]">
             A static website was never built to run a business. It can
             describe what you sell, but it can&apos;t capture a lead
             scrolling in from social media, route that lead to the right
@@ -36,7 +41,7 @@ export function About() {
             changes. Those are separate jobs that most companies still stitch
             together from four or five disconnected tools.
           </p>
-          <p className="mt-4 leading-relaxed text-muted">
+          <p className="mt-4 leading-relaxed text-[#8A8F98]">
             We build the layer underneath instead: one digital ecosystem that
             connects the path a visitor actually takes, from the ad they
             clicked, to the internal dashboard your staff use to manage the
@@ -45,106 +50,42 @@ export function About() {
             under their brand, with the same reliability we hold ourselves
             to.
           </p>
+
+          <h3 className="mt-10 text-2xl font-normal tracking-tighter text-white">
+            Precision is the product.
+          </h3>
+          <p className="mt-4 leading-relaxed text-[#8A8F98]">
+            We design systems the way a watchmaker designs a movement: every
+            part sized for exactly the load it carries, nothing decorative,
+            nothing missing. That means typed APIs, tested edge cases, and
+            interfaces that respond in milliseconds, not seconds.
+          </p>
+          <p className="mt-4 leading-relaxed text-[#8A8F98]">
+            It also means we say no to work outside our range. We take on
+            projects where our engineering can genuinely move the outcome,
+            and we stay close to the metrics that prove it did.
+          </p>
         </motion.div>
 
-        {/* Part 2 — split layout: copy left, visual mockup right */}
-        <div className="mt-24 grid items-center gap-16 md:grid-cols-2 md:gap-12">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.4 }}
-            variants={fadeUp}
-          >
-            <h3 className="text-2xl font-normal tracking-tighter text-foreground">
-              Precision is the product.
-            </h3>
-            <p className="mt-4 leading-relaxed text-muted">
-              We design systems the way a watchmaker designs a movement: every
-              part sized for exactly the load it carries, nothing decorative,
-              nothing missing. That means typed APIs, tested edge cases, and
-              interfaces that respond in milliseconds, not seconds.
-            </p>
-            <p className="mt-4 leading-relaxed text-muted">
-              It also means we say no to work outside our range. We take on
-              projects where our engineering can genuinely move the outcome,
-              and we stay close to the metrics that prove it did.
-            </p>
-            <dl className="mt-8 grid grid-cols-3 gap-6 border-t border-white/[0.06] pt-6">
-              <div>
-                <dt className="text-sm text-muted">Projects</dt>
-                <dd className="mt-1 text-xl font-semibold text-foreground">
-                  100+
-                </dd>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+          transition={{ delay: 0.1 }}
+          className="lg:col-span-5 lg:self-center"
+        >
+          <div className="divide-y divide-white/[0.06] border-t border-white/[0.06]">
+            {METRICS.map((metric) => (
+              <div key={metric.label} className="py-6 first:pt-0">
+                <div className="text-sm text-[#8A8F98]">{metric.label}</div>
+                <div className="mt-2 bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-7xl font-normal tracking-tighter text-transparent sm:text-8xl">
+                  {metric.value}
+                </div>
               </div>
-              <div>
-                <dt className="text-sm text-muted">Experience</dt>
-                <dd className="mt-1 text-xl font-semibold text-foreground">
-                  25 years
-                </dd>
-              </div>
-              <div>
-                <dt className="text-sm text-muted">Lines of code</dt>
-                <dd className="mt-1 text-xl font-semibold text-foreground">
-                  10,000+
-                </dd>
-              </div>
-            </dl>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.4 }}
-            variants={fadeUp}
-            transition={{ delay: 0.1 }}
-            className="relative"
-          >
-            <div
-              className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-surface"
-              style={{
-                boxShadow:
-                  "0 0 0 1px rgba(255,255,255,0.06), 0 2px 20px rgba(0,0,0,0.4), 0 24px 64px -12px rgba(94,106,210,0.25)",
-              }}
-            >
-              {/* Abstract precision-engineering composition, not a fake app screenshot */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
-                  backgroundSize: "28px 28px",
-                }}
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(circle at 30% 20%, rgba(94,106,210,0.35), transparent 55%)",
-                }}
-              />
-
-              <motion.div
-                className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/40"
-                initial={{ opacity: 0.4, transform: "translate(-50%,-50%) scale(0.9)" }}
-                whileInView={{
-                  opacity: [0.4, 0.7, 0.4],
-                  transform: [
-                    "translate(-50%,-50%) scale(0.9)",
-                    "translate(-50%,-50%) scale(1.05)",
-                    "translate(-50%,-50%) scale(0.9)",
-                  ],
-                }}
-                viewport={{ once: true }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <div className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_24px_6px_rgba(94,106,210,0.7)]" />
-
-              <div className="absolute bottom-6 left-6 right-6 border-t border-white/[0.08] pt-4 text-xs text-muted">
-                Systems designed in-house
-              </div>
-            </div>
-          </motion.div>
-        </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
