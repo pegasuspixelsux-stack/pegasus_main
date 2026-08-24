@@ -21,7 +21,7 @@ export function AmbientBackground() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(94,106,210,0.16), transparent 60%)",
+            "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(94,106,210,0.32), transparent 60%)",
         }}
       />
 
@@ -29,10 +29,10 @@ export function AmbientBackground() {
         className="absolute left-[8%] top-[-10%] h-[36rem] w-[36rem] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(94,106,210,0.22) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(94,106,210,0.42) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
-        initial={{ transform: "translate3d(0,0,0)", opacity: 0.7 }}
+        initial={{ transform: "translate3d(0,0,0)", opacity: 0.85 }}
         animate={
           reduce
             ? undefined
@@ -55,10 +55,10 @@ export function AmbientBackground() {
         className="absolute right-[4%] top-[10%] h-[28rem] w-[28rem] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(94,106,210,0.14) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(94,106,210,0.3) 0%, transparent 70%)",
           filter: "blur(90px)",
         }}
-        initial={{ transform: "translate3d(0,0,0)", opacity: 0.6 }}
+        initial={{ transform: "translate3d(0,0,0)", opacity: 0.75 }}
         animate={
           reduce
             ? undefined
