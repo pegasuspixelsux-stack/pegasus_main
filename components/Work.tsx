@@ -12,6 +12,8 @@ import {
 } from "@phosphor-icons/react";
 import { cn } from "@/lib/cn";
 
+type Lang = "en" | "es";
+
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 
 const fadeUp = {
@@ -47,65 +49,105 @@ type WorkItem = {
   wide?: boolean;
 };
 
-const WORK: WorkItem[] = [
-  {
-    name: "MovOS",
-    tags: ["Enterprise Operations", "Fleet Management"],
-    description:
-      "Real-time coordination for an 800-vehicle enterprise fleet, from dispatch to maintenance history.",
-    icon: Truck,
-    span: "lg:col-span-4",
-    glow: "top-left",
-    stat: { value: "800", label: "vehicles coordinated" },
-    featured: true,
-  },
-  {
-    name: "Oikos",
-    tags: ["SaaS Architecture", "Real Estate Catalog"],
-    description:
-      "A multi-tenant catalog that gives every real estate brokerage its own branded storefront on shared infrastructure.",
-    icon: Buildings,
-    span: "lg:col-span-2",
-    glow: "top-right",
-  },
-  {
-    name: "La Pancha Ecosystem",
-    tags: ["Commerce & Integration", "WhatsApp Engine"],
-    description:
-      "A digital catalog wired straight into a WhatsApp ordering engine, turning browsing into checkout in one thread.",
-    icon: WhatsappLogo,
-    span: "lg:col-span-2",
-    glow: "bottom-left",
-  },
-  {
-    name: "Nexus Agency Core",
-    tags: ["White-Label Infrastructure", "Lead Capture & CRM"],
-    description:
-      "Lead capture and CRM infrastructure, white-labeled for agency partners running client acquisition at scale.",
-    icon: UsersThree,
-    span: "lg:col-span-2",
-    glow: "bottom-right",
-  },
-  {
-    name: "VeloSync",
-    tags: ["Workflow Automation", "Inventory Portal"],
-    description:
-      "A multi-stage inventory portal that automates the handoff between warehousing, fulfillment, and reorder.",
-    icon: Package,
-    span: "lg:col-span-2",
-    glow: "top-left",
-  },
-  {
-    name: "Apex Logistics",
-    tags: ["Custom Dashboard", "Freight Tracking"],
-    description:
-      "A live freight-tracking dashboard that gives dispatchers a real-time map of every shipment in transit.",
-    icon: MapTrifold,
-    span: "lg:col-span-6",
-    glow: "top-right",
-    wide: true,
-  },
+const WORK_BASE = [
+  { icon: Truck, span: "lg:col-span-4", glow: "top-left" as Glow, featured: true },
+  { icon: Buildings, span: "lg:col-span-2", glow: "top-right" as Glow },
+  { icon: WhatsappLogo, span: "lg:col-span-2", glow: "bottom-left" as Glow },
+  { icon: UsersThree, span: "lg:col-span-2", glow: "bottom-right" as Glow },
+  { icon: Package, span: "lg:col-span-2", glow: "top-left" as Glow },
+  { icon: MapTrifold, span: "lg:col-span-6", glow: "top-right" as Glow, wide: true },
 ];
+
+const CONTENT = {
+  en: {
+    heading: "Selected work",
+    subtext:
+      "Six systems built for direct clients and white-label agency partners, each one infrastructure first.",
+    items: [
+      {
+        name: "MovOS",
+        tags: ["Enterprise Operations", "Fleet Management"] as [string, string],
+        description:
+          "Real-time coordination for an 800-vehicle enterprise fleet, from dispatch to maintenance history.",
+        stat: { value: "800", label: "vehicles coordinated" },
+      },
+      {
+        name: "Oikos",
+        tags: ["SaaS Architecture", "Real Estate Catalog"] as [string, string],
+        description:
+          "A multi-tenant catalog that gives every real estate brokerage its own branded storefront on shared infrastructure.",
+      },
+      {
+        name: "La Pancha Ecosystem",
+        tags: ["Commerce & Integration", "WhatsApp Engine"] as [string, string],
+        description:
+          "A digital catalog wired straight into a WhatsApp ordering engine, turning browsing into checkout in one thread.",
+      },
+      {
+        name: "Nexus Agency Core",
+        tags: ["White-Label Infrastructure", "Lead Capture & CRM"] as [string, string],
+        description:
+          "Lead capture and CRM infrastructure, white-labeled for agency partners running client acquisition at scale.",
+      },
+      {
+        name: "VeloSync",
+        tags: ["Workflow Automation", "Inventory Portal"] as [string, string],
+        description:
+          "A multi-stage inventory portal that automates the handoff between warehousing, fulfillment, and reorder.",
+      },
+      {
+        name: "Apex Logistics",
+        tags: ["Custom Dashboard", "Freight Tracking"] as [string, string],
+        description:
+          "A live freight-tracking dashboard that gives dispatchers a real-time map of every shipment in transit.",
+      },
+    ],
+  },
+  es: {
+    heading: "Sistemas Desplegados y Arquitectura",
+    subtext:
+      "Plataformas del mundo real y ecosistemas internos construidos para clientes directos y socios de agencias white-label.",
+    items: [
+      {
+        name: "MovOS",
+        tags: ["Operaciones Enterprise", "Gestión de Flota"] as [string, string],
+        description:
+          "Coordinación en tiempo real para una flota empresarial de 800 vehículos, desde el despacho hasta el historial de mantenimiento.",
+        stat: { value: "800", label: "vehículos coordinados" },
+      },
+      {
+        name: "Oikos",
+        tags: ["Arquitectura SaaS", "Catálogo Inmobiliario Multi-Tenant"] as [string, string],
+        description:
+          "Un catálogo multi-tenant que le da a cada inmobiliaria su propia tienda con marca propia sobre infraestructura compartida.",
+      },
+      {
+        name: "La Pancha Ecosystem",
+        tags: ["Comercio e Integración", "Catálogo Digital y Motor de WhatsApp"] as [string, string],
+        description:
+          "Un catálogo digital conectado directamente a un motor de pedidos por WhatsApp, convirtiendo la navegación en compra en un solo hilo.",
+      },
+      {
+        name: "Nexus Agency Core",
+        tags: ["Infraestructura White-Label", "Captura de Leads y CRM"] as [string, string],
+        description:
+          "Infraestructura de captura de leads y CRM, white-label para socios de agencia que gestionan adquisición de clientes a escala.",
+      },
+      {
+        name: "VeloSync",
+        tags: ["Automatización de Flujos", "Portal de Inventario Multi-Etapa"] as [string, string],
+        description:
+          "Un portal de inventario multi-etapa que automatiza la transferencia entre almacenamiento, cumplimiento y reabastecimiento.",
+      },
+      {
+        name: "Apex Logistics",
+        tags: ["Panel Personalizado", "Sistema de Rastreo de Carga"] as [string, string],
+        description:
+          "Un panel de rastreo de carga en vivo que le da a los despachadores un mapa en tiempo real de cada envío en tránsito.",
+      },
+    ],
+  },
+};
 
 function WorkCard({ item, index }: { item: WorkItem; index: number }) {
   const IconComponent = item.icon;
@@ -204,7 +246,13 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
   );
 }
 
-export function Work() {
+export function Work({ lang = "en" }: { lang?: Lang }) {
+  const t = CONTENT[lang];
+  const work: WorkItem[] = t.items.map((item, i) => ({
+    ...item,
+    ...WORK_BASE[i],
+  }));
+
   return (
     <section id="work" className="relative z-10 py-28 md:py-36">
       <div className="mx-auto max-w-[1440px] px-6">
@@ -216,16 +264,13 @@ export function Work() {
           className="max-w-xl"
         >
           <h2 className="text-3xl font-normal tracking-tighter text-foreground sm:text-4xl">
-            Selected work
+            {t.heading}
           </h2>
-          <p className="mt-4 leading-relaxed text-muted">
-            Six systems built for direct clients and white-label agency
-            partners, each one infrastructure first.
-          </p>
+          <p className="mt-4 leading-relaxed text-muted">{t.subtext}</p>
         </motion.div>
 
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6">
-          {WORK.map((item, index) => (
+          {work.map((item, index) => (
             <WorkCard key={item.name} item={item} index={index} />
           ))}
         </div>

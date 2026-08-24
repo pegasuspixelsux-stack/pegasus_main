@@ -4,6 +4,8 @@ import { useId, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { CaretDown } from "@phosphor-icons/react";
 
+type Lang = "en" | "es";
+
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 
 const fadeUp = {
@@ -15,29 +17,63 @@ const fadeUp = {
   },
 };
 
-const FAQS = [
-  {
-    question:
-      "What is the difference between your infrastructure and a standard website?",
-    answer:
-      "A standard website is static and designed only to display information. Our digital infrastructure combines front-end conversion paths with internal staff dashboards, lead management systems, and automated publishing pipelines to run your actual operations.",
+const CONTENT = {
+  en: {
+    heading: "Frequently Asked Questions",
+    faqs: [
+      {
+        question:
+          "What is the difference between your infrastructure and a standard website?",
+        answer:
+          "A standard website is static and designed only to display information. Our digital infrastructure combines front-end conversion paths with internal staff dashboards, lead management systems, and automated publishing pipelines to run your actual operations.",
+      },
+      {
+        question:
+          "Do you work with marketing and design agencies on a white-label basis?",
+        answer:
+          "Yes. We partner frequently with agencies, functioning as their dedicated technical backbone to build and deploy complex client applications seamlessly under their brand.",
+      },
+      {
+        question: "How long does a typical digital infrastructure build take?",
+        answer:
+          "Depending on the scope (custom CRMs, databases, and multi-tenant catalogs), projects typically range from 4 to 12 weeks from architecture planning to production deployment.",
+      },
+      {
+        question: "What does your technology stack consist of?",
+        answer:
+          "We build using modern, high-performance architectures including Next.js, React, TypeScript, Tailwind CSS, and robust database backends like Supabase, optimized for sub-second response times.",
+      },
+    ],
   },
-  {
-    question: "Do you work with marketing and design agencies on a white-label basis?",
-    answer:
-      "Yes. We partner frequently with agencies, functioning as their dedicated technical backbone to build and deploy complex client applications seamlessly under their brand.",
+  es: {
+    heading: "Preguntas Frecuentes",
+    faqs: [
+      {
+        question:
+          "¿Cuál es la diferencia entre su infraestructura y un sitio web estándar?",
+        answer:
+          "Un sitio web estándar es estático y solo sirve para mostrar información. Nuestra infraestructura digital combina rutas de conversión frontend con paneles internos para el personal, sistemas de gestión de leads y tuberías de publicación automatizadas para operar tu negocio real.",
+      },
+      {
+        question:
+          "¿Trabajan con agencias de marketing y diseño bajo la modalidad white-label?",
+        answer:
+          "Sí. Nos asociamos frecuentemente con agencias, funcionando como su columna vertebral técnica para construir y desplegar aplicaciones complejas de clientes sin fricciones bajo su propia marca.",
+      },
+      {
+        question:
+          "¿Cuánto tiempo toma un desarrollo típico de infraestructura digital?",
+        answer:
+          "Dependiendo del alcance (ej. integración de CRMs personalizados, bases de datos y catálogos multi-tenant), los proyectos suelen tomar entre 4 y 12 semanas desde la planificación de arquitectura hasta el despliegue en producción.",
+      },
+      {
+        question: "¿Cuál es su stack tecnológico?",
+        answer:
+          "Construimos utilizando arquitecturas modernas de alto rendimiento que incluyen Next.js, React, TypeScript, Tailwind CSS y potentes backends de bases de datos como Supabase, optimizados para respuestas en milisegundos.",
+      },
+    ],
   },
-  {
-    question: "How long does a typical digital infrastructure build take?",
-    answer:
-      "Depending on the scope (custom CRMs, databases, and multi-tenant catalogs), projects typically range from 4 to 12 weeks from architecture planning to production deployment.",
-  },
-  {
-    question: "What does your technology stack consist of?",
-    answer:
-      "We build using modern, high-performance architectures including Next.js, React, TypeScript, Tailwind CSS, and robust database backends like Supabase, optimized for sub-second response times.",
-  },
-];
+};
 
 function FaqItem({
   question,
@@ -93,8 +129,9 @@ function FaqItem({
   );
 }
 
-export function Faq() {
+export function Faq({ lang = "en" }: { lang?: Lang }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const t = CONTENT[lang];
 
   return (
     <section className="relative z-10 border-b border-white/[0.06] py-20 lg:py-28">
@@ -106,7 +143,7 @@ export function Faq() {
           variants={fadeUp}
           className="text-center text-3xl font-normal tracking-tighter text-foreground sm:text-4xl"
         >
-          Frequently Asked Questions
+          {t.heading}
         </motion.h2>
 
         <motion.div
@@ -117,7 +154,7 @@ export function Faq() {
           transition={{ delay: 0.1 }}
           className="mt-12 border-t border-white/[0.06]"
         >
-          {FAQS.map((faq, index) => (
+          {t.faqs.map((faq, index) => (
             <FaqItem
               key={faq.question}
               question={faq.question}

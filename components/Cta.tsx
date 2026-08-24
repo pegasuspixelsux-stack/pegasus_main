@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 import { ArrowRight } from "@phosphor-icons/react";
 import { Button } from "@/components/Button";
 
+type Lang = "en" | "es";
+
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 
 const fadeUp = {
@@ -15,7 +17,24 @@ const fadeUp = {
   },
 };
 
-export function Cta() {
+const CONTENT = {
+  en: {
+    heading:
+      "Ready to replace fragmented tools with unified digital infrastructure?",
+    body: "Let's build the engine that powers your business operations or white-label client stack.",
+    cta: "Start a project",
+  },
+  es: {
+    heading:
+      "¿Listo para reemplazar herramientas fragmentadas con infraestructura digital unificada?",
+    body: "Construyamos el motor que impulsa las operaciones de tu negocio o tu stack de clientes white-label.",
+    cta: "Iniciar un proyecto",
+  },
+};
+
+export function Cta({ lang = "en" }: { lang?: Lang }) {
+  const t = CONTENT[lang];
+
   return (
     <section className="relative z-10 overflow-hidden border-y border-white/[0.06] py-24">
       {/* Localized ambient glow, scoped to this section only */}
@@ -36,12 +55,10 @@ export function Cta() {
         className="relative mx-auto flex max-w-3xl flex-col items-center px-6 text-center"
       >
         <h2 className="text-3xl font-normal tracking-tighter text-foreground sm:text-4xl md:text-5xl">
-          Ready to replace fragmented tools with unified digital
-          infrastructure?
+          {t.heading}
         </h2>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-          Let&apos;s build the engine that powers your business operations or
-          white-label client stack.
+          {t.body}
         </p>
         <div className="mt-10">
           <Button
@@ -49,7 +66,7 @@ export function Cta() {
             variant="primary"
             icon={<ArrowRight size={18} weight="bold" />}
           >
-            Start a project
+            {t.cta}
           </Button>
         </div>
       </motion.div>

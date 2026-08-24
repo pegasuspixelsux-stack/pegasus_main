@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 import { Star } from "@phosphor-icons/react";
 import { Button } from "@/components/Button";
 
+type Lang = "en" | "es";
+
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 
 const container = {
@@ -22,7 +24,9 @@ const item = {
   },
 };
 
-export function Hero() {
+export function Hero({ lang = "en" }: { lang?: Lang }) {
+  const isEs = lang === "es";
+
   return (
     <section className="relative z-10 flex min-h-[100dvh] items-center pt-16">
       <motion.div
@@ -33,7 +37,9 @@ export function Hero() {
       >
         <motion.div variants={item} className="mb-6">
           <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 text-xs uppercase tracking-[0.12em] text-muted">
-            Web Design · Apps · Automation
+            {isEs
+              ? "Infraestructura Digital para Negocios Modernos"
+              : "Web Design · Apps · Automation"}
           </span>
         </motion.div>
 
@@ -41,22 +47,47 @@ export function Hero() {
           variants={item}
           className="bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-4xl font-normal leading-[1.08] tracking-tighter text-transparent sm:text-6xl md:text-7xl lg:text-[5.625rem] xl:text-[6.75rem]"
         >
-          <span className="block">Infrastructure for</span>
-          <span className="block">
-            <span className="inline-block whitespace-nowrap pb-1 font-normal italic leading-[1.15] text-accent">
-              modern businesses
-            </span>
-            .
-          </span>
+          {isEs ? (
+            <>
+              <span className="block">Infraestructura para</span>
+              <span className="block">
+                <span className="inline-block whitespace-nowrap pb-1 font-normal italic leading-[1.15] text-accent">
+                  negocios modernos
+                </span>
+                .
+              </span>
+            </>
+          ) : (
+            <>
+              <span className="block">Infrastructure for</span>
+              <span className="block">
+                <span className="inline-block whitespace-nowrap pb-1 font-normal italic leading-[1.15] text-accent">
+                  modern businesses
+                </span>
+                .
+              </span>
+            </>
+          )}
         </motion.h1>
 
         <motion.p
           variants={item}
           className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-muted"
         >
-          We build end-to-end digital platforms, websites fused with custom
-          dashboards, lead management pipelines, and publishing systems, for
-          enterprises and white-label partners.
+          {isEs ? (
+            <>
+              Más que un sitio web. Diseñamos plataformas empresariales
+              completas con paneles integrados, tuberías de gestión de leads y
+              sistemas de publicación que escalan contigo: construidos para
+              empresas ambiciosas y socios de agencias white-label.
+            </>
+          ) : (
+            <>
+              We build end-to-end digital platforms, websites fused with
+              custom dashboards, lead management pipelines, and publishing
+              systems, for enterprises and white-label partners.
+            </>
+          )}
         </motion.p>
 
         <motion.div
@@ -68,7 +99,7 @@ export function Hero() {
               <Star key={i} size={12} weight="fill" />
             ))}
           </span>
-          5.0 on Google
+          {isEs ? "5.0 en Google" : "5.0 on Google"}
         </motion.div>
 
         <motion.div
@@ -76,10 +107,10 @@ export function Hero() {
           className="mt-6 flex flex-col items-center gap-4 sm:flex-row"
         >
           <Button href="mailto:hello@pegasuspixels.dev" variant="primary">
-            Start a project
+            {isEs ? "Ver Sistemas Desplegados" : "Start a project"}
           </Button>
           <Button href="#about" variant="secondary">
-            See how we work
+            {isEs ? "Asóciate con Nosotros" : "See how we work"}
           </Button>
         </motion.div>
       </motion.div>

@@ -12,18 +12,39 @@ import { List, X } from "@phosphor-icons/react";
 import { Button } from "@/components/Button";
 import { cn } from "@/lib/cn";
 
-const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
-  { label: "Contact", href: "#contact" },
-];
+type Lang = "en" | "es";
+
+const CONTENT = {
+  en: {
+    links: [
+      { label: "About", href: "#about" },
+      { label: "Work", href: "#work" },
+      { label: "Contact", href: "#contact" },
+    ],
+    cta: "Start a project",
+    switchLabel: "ES",
+    switchHref: "/spanish",
+  },
+  es: {
+    links: [
+      { label: "Sistemas", href: "#about" },
+      { label: "Casos de Estudio", href: "#work" },
+      { label: "White-Label", href: "#work" },
+      { label: "Contacto", href: "#contact" },
+    ],
+    cta: "Desplegar Infraestructura",
+    switchLabel: "EN",
+    switchHref: "/",
+  },
+};
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 
-export function Nav() {
+export function Nav({ lang = "en" }: { lang?: Lang }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { scrollY } = useScroll();
+  const t = CONTENT[lang];
 
   // Toggle a boolean only when crossing the threshold, never track the
   // continuous scroll value in React state (would re-render every frame).
@@ -54,7 +75,7 @@ export function Nav() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
+          {t.links.map((link) => (
             <Link
               key={link.label}
               href={link.href}
@@ -65,9 +86,18 @@ export function Nav() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-4 md:flex">
+          <Link
+            href={t.switchHref}
+            aria-label={
+              lang === "en" ? "Switch to Spanish" : "Cambiar a inglés"
+            }
+            className="rounded-full border border-white/[0.08] px-3 py-1.5 text-xs font-medium text-muted transition-colors duration-200 hover:border-white/[0.16] hover:text-foreground"
+          >
+            {t.switchLabel}
+          </Link>
           <Button href="#about" variant="secondary" className="px-5 py-2.5">
-            Start a project
+            {t.cta}
           </Button>
         </div>
 
@@ -123,7 +153,7 @@ export function Nav() {
               transition={{ duration: 0.22, ease: EASE_OUT, delay: 0.03 }}
               className="flex flex-col gap-1 px-6 pt-8"
             >
-              {NAV_LINKS.map((link, i) => (
+              {t.links.map((link, i) => (
                 <motion.div
                   key={link.label}
                   initial={{ transform: "translateY(-8px)", opacity: 0 }}
@@ -146,11 +176,37 @@ export function Nav() {
               <motion.div
                 initial={{ transform: "translateY(-8px)", opacity: 0 }}
                 animate={{ transform: "translateY(0px)", opacity: 1 }}
-                transition={{ duration: 0.22, ease: EASE_OUT, delay: 0.13 }}
+                transition={{
+                  duration: 0.22,
+                  ease: EASE_OUT,
+                  delay: 0.05 + t.links.length * 0.04,
+                }}
+                className="flex items-center justify-between border-b border-white/[0.06] py-4"
+              >
+                <span className="text-lg text-foreground">Language</span>
+                <Link
+                  href={t.switchHref}
+                  onClick={() => setOpen(false)}
+                  aria-label={
+                    lang === "en" ? "Switch to Spanish" : "Cambiar a inglés"
+                  }
+                  className="rounded-full border border-white/[0.08] px-3 py-1.5 text-sm font-medium text-muted transition-colors duration-200 hover:border-white/[0.16] hover:text-foreground"
+                >
+                  {t.switchLabel}
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ transform: "translateY(-8px)", opacity: 0 }}
+                animate={{ transform: "translateY(0px)", opacity: 1 }}
+                transition={{
+                  duration: 0.22,
+                  ease: EASE_OUT,
+                  delay: 0.13 + t.links.length * 0.04,
+                }}
                 className="pt-6"
               >
                 <Button href="#about" className="w-full">
-                  Start a project
+                  {t.cta}
                 </Button>
               </motion.div>
             </motion.nav>
