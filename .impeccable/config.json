@@ -11,6 +11,15 @@
         ],
         "createdAt": "2026-08-24T17:01:00.253Z",
         "reason": "User confirmed vertical gradient headline is an explicit brief requirement"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "components/About.tsx"
+        ],
+        "createdAt": "2026-08-24T18:32:57.313Z",
+        "reason": "User confirmed gradient-filled metric numbers are an explicit brief requirement"
       }
     ]
   }
