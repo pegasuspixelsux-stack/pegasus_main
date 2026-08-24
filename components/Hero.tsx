@@ -31,20 +31,9 @@ export function Hero() {
         animate="show"
         className="mx-auto flex max-w-[1440px] flex-col items-center px-6 text-center"
       >
-        <motion.div
-          variants={item}
-          className="mb-6 flex flex-wrap items-center justify-center gap-3"
-        >
+        <motion.div variants={item} className="mb-6">
           <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 text-xs uppercase tracking-[0.12em] text-muted">
             Web Design · Apps · Automation
-          </span>
-          <span className="flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 text-xs text-muted">
-            <span className="flex gap-0.5 text-accent">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={12} weight="fill" />
-              ))}
-            </span>
-            5.0 on Google
           </span>
         </motion.div>
 
@@ -72,7 +61,19 @@ export function Hero() {
 
         <motion.div
           variants={item}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
+          className="mt-6 flex items-center gap-1.5 text-xs text-muted"
+        >
+          <span className="flex gap-0.5 text-accent">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} size={12} weight="fill" />
+            ))}
+          </span>
+          5.0 on Google
+        </motion.div>
+
+        <motion.div
+          variants={item}
+          className="mt-6 flex flex-col items-center gap-4 sm:flex-row"
         >
           <Button href="mailto:hello@pegasuspixels.dev" variant="primary">
             Start a project
