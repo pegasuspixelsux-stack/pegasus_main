@@ -34,19 +34,19 @@ export function Hero() {
           variants={item}
           className="bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-5xl font-normal leading-[1.08] tracking-tighter text-transparent sm:text-6xl md:text-7xl"
         >
-          We build the software you can&apos;t afford to get{" "}
           <span className="inline-block pb-1 font-extralight italic leading-[1.15] text-accent">
-            wrong
-          </span>
-          .
+            Infrastructure
+          </span>{" "}
+          for modern businesses.
         </motion.h1>
 
         <motion.p
           variants={item}
           className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-muted"
         >
-          Pegasus Pixels partners with founders and product teams to design,
-          build, and ship production-grade software, end to end.
+          We build end-to-end digital platforms, websites fused with custom
+          dashboards, lead management pipelines, and publishing systems, for
+          enterprises and white-label partners.
         </motion.p>
 
         <motion.div

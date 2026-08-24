@@ -26,17 +26,24 @@ export function About() {
           className="mx-auto max-w-2xl text-center"
         >
           <h2 className="text-3xl font-normal tracking-tighter text-foreground sm:text-4xl">
-            About Pegasus Pixels
+            Architecture, Not Just Design
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted">
-            We are a small team of engineers and designers who treat software
-            like a craft, not a checklist. Every project starts with the same
-            question: what does this product need to do perfectly, and what
-            can we leave out. That discipline shows up in the details, from
-            how a button responds to a click to how a system holds up a year
-            after launch. We work in short, transparent cycles, ship real
-            code early, and stay accountable for what we build long after the
-            invoice is paid.
+            A static website was never built to run a business. It can
+            describe what you sell, but it can&apos;t capture a lead
+            scrolling in from social media, route that lead to the right
+            person on your team, or publish new inventory the moment it
+            changes. Those are separate jobs that most companies still stitch
+            together from four or five disconnected tools.
+          </p>
+          <p className="mt-4 leading-relaxed text-muted">
+            We build the layer underneath instead: one digital ecosystem that
+            connects the path a visitor actually takes, from the ad they
+            clicked, to the internal dashboard your staff use to manage the
+            lead, to the automated engine that keeps your catalog current.
+            For agency partners, that same infrastructure runs white-label
+            under their brand, with the same reliability we hold ourselves
+            to.
           </p>
         </motion.div>
 

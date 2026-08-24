@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const FOOTER_LINKS = [
   { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
   { label: "Contact", href: "mailto:hello@pegasuspixels.dev" },
 ];
 

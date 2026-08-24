@@ -14,6 +14,7 @@ import { cn } from "@/lib/cn";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
   { label: "Contact", href: "mailto:hello@pegasuspixels.dev" },
 ];
 
