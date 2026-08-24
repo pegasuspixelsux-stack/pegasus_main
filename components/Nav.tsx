@@ -15,7 +15,7 @@ import { cn } from "@/lib/cn";
 const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
-  { label: "Contact", href: "mailto:hello@pegasuspixels.dev" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;

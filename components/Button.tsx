@@ -7,6 +7,7 @@ type ButtonProps = {
   href: string;
   variant?: "primary" | "secondary";
   children: React.ReactNode;
+  icon?: React.ReactNode;
   className?: string;
 };
 
@@ -19,10 +20,11 @@ export function Button({
   href,
   variant = "primary",
   children,
+  icon,
   className,
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center whitespace-nowrap rounded-full px-6 py-3 text-sm font-medium " +
+    "group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-sm font-medium " +
     "transition-[transform,background-color,border-color,box-shadow] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] " +
     "active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas";
 
@@ -41,6 +43,11 @@ export function Button({
   return (
     <Link href={href} className={cn(base, variants[variant], className)}>
       {children}
+      {icon && (
+        <span className="inline-flex transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5">
+          {icon}
+        </span>
+      )}
     </Link>
   );
 }

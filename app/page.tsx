@@ -4,6 +4,9 @@ import { Hero } from "@/components/Hero";
 import { Statement } from "@/components/Statement";
 import { About } from "@/components/About";
 import { Work } from "@/components/Work";
+import { Cta } from "@/components/Cta";
+import { Faq } from "@/components/Faq";
+import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -15,6 +18,9 @@ export default function Home() {
       <Statement />
       <Work />
       <About />
+      <Faq />
+      <Cta />
+      <Contact />
       <Footer />
     </main>
   );
