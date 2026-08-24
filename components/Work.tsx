@@ -207,7 +207,7 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 export function Work() {
   return (
     <section id="work" className="relative z-10 py-28 md:py-36">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-[1440px] px-6">
         <motion.div
           initial="hidden"
           whileInView="show"

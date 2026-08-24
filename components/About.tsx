@@ -16,7 +16,7 @@ const fadeUp = {
 export function About() {
   return (
     <section id="about" className="relative z-10 py-28 md:py-36">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-[1440px] px-6">
         {/* Part 1 — mission statement */}
         <motion.div
           initial="hidden"

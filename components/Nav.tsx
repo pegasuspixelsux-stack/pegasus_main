@@ -44,7 +44,7 @@ export function Nav() {
           : "border-b border-transparent bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-6">
         <Link
           href="#"
           className="flex items-center gap-2 text-[15px] font-semibold tracking-tight text-foreground"
